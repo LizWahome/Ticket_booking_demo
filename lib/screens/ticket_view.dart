@@ -5,14 +5,15 @@ import 'package:ticket_booking_demo/utils/styles.dart';
 import 'package:ticket_booking_demo/widgets/thick_container.dart';
 
 class TicketView extends StatelessWidget {
-  const TicketView({super.key});
+  final Map<String, dynamic> ticket;
+  const TicketView({super.key, required this.ticket});
 
   @override
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
     return SizedBox(
       width: size.width * 0.9,
-      //height: size.height,
+      // height: size.height,
       child: Container(
         margin: const EdgeInsets.only(right: 16),
         child: Column(
@@ -30,7 +31,7 @@ class TicketView extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text("NYC",
+                      Text(ticket['countryshort'],
                           style: Styles.headlineStyle3
                               .copyWith(color: Colors.white)),
                       Expanded(child: Container()),
@@ -76,7 +77,7 @@ class TicketView extends StatelessWidget {
                       )),
                       const ThickContainer(),
                       Expanded(child: Container()),
-                      Text("London",
+                      Text(ticket['city'],
                           style: Styles.headlineStyle3
                               .copyWith(color: Colors.white))
                     ],
@@ -87,15 +88,15 @@ class TicketView extends StatelessWidget {
                     children: [
                       SizedBox(
                           width: 100,
-                          child: Text("New-York",
+                          child: Text(ticket['countrylong'],
                               style: Styles.headlineStyle4
                                   .copyWith(color: Colors.white))),
-                      Text("8H 30M",
+                      Text(ticket['time'],
                           style: Styles.headlineStyle4
                               .copyWith(color: Colors.white)),
                       SizedBox(
                           width: 100,
-                          child: Text("London",
+                          child: Text(ticket['countrylong'],
                               textAlign: TextAlign.end,
                               style: Styles.headlineStyle4
                                   .copyWith(color: Colors.white))),
@@ -122,7 +123,8 @@ class TicketView extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Expanded(child: Padding(
+                  Expanded(
+                      child: Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: LayoutBuilder(builder:
                         (BuildContext context, BoxConstraints constraints) {
@@ -131,7 +133,7 @@ class TicketView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         mainAxisSize: MainAxisSize.max,
                         children: List.generate(
-                          (constraints.constrainWidth()/15).floor(),
+                          (constraints.constrainWidth() / 15).floor(),
                           (index) => const SizedBox(
                             width: 5,
                             height: 1,
@@ -165,17 +167,32 @@ class TicketView extends StatelessWidget {
                   borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(21),
                       bottomRight: Radius.circular(21))),
-              padding: const EdgeInsets.only(top: 10, bottom: 16, right: 16, left: 16),
+              padding: const EdgeInsets.only(
+                  top: 10, bottom: 16, right: 16, left: 16),
               child: Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(
+                          width: 100,
+                          child: Text(ticket['date'],
+                              style: Styles.headlineStyle3
+                                  .copyWith(color: Colors.white))),
+                      Text(
+                        ticket['dptime'],
+                        style:
+                            Styles.headlineStyle3.copyWith(color: Colors.white),
+                      ),
+                      SizedBox(
                         width: 100,
-                        child: Text("1 May", style: Styles.headlineStyle3.copyWith(color: Colors.white))),
-                      Text("08:00 AM", style: Styles.headlineStyle3.copyWith(color: Colors.white),),
-                      SizedBox(width: 100, child: Text("23",textAlign: TextAlign.end, style: Styles.headlineStyle3.copyWith(color: Colors.white),),)
+                        child: Text(
+                          "${ticket['number']}",
+                          textAlign: TextAlign.end,
+                          style: Styles.headlineStyle3
+                              .copyWith(color: Colors.white),
+                        ),
+                      )
                     ],
                   ),
                   Row(
@@ -183,12 +200,25 @@ class TicketView extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: 100,
-                        child: Text("Date", style: Styles.headlineStyle4.copyWith(color: Colors.white),),
+                        child: Text(
+                          "Date",
+                          style: Styles.headlineStyle4
+                              .copyWith(color: Colors.white),
+                        ),
                       ),
-                      Text("Departure time", style: Styles.headlineStyle4.copyWith(color: Colors.white),),
+                      Text(
+                        "Departure time",
+                        style:
+                            Styles.headlineStyle4.copyWith(color: Colors.white),
+                      ),
                       SizedBox(
                         width: 100,
-                        child: Text("Number", textAlign: TextAlign.end, style: Styles.headlineStyle4.copyWith(color: Colors.white),),
+                        child: Text(
+                          "Number",
+                          textAlign: TextAlign.end,
+                          style: Styles.headlineStyle4
+                              .copyWith(color: Colors.white),
+                        ),
                       )
                     ],
                   )
