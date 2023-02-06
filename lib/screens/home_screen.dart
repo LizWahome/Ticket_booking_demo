@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:ticket_booking_demo/screens/hotel_view.dart';
 import 'package:ticket_booking_demo/screens/ticket_view.dart';
+import 'package:ticket_booking_demo/utils/app_info_list.dart';
 import 'package:ticket_booking_demo/utils/styles.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -27,35 +28,45 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text("Good morning", style: Styles.headlineStyle3),
                         const Gap(5),
-                        Text("Book Tickets", style: Styles.headlineStyle,)
+                        Text(
+                          "Book Tickets",
+                          style: Styles.headlineStyle,
+                        )
                         //Text("Book Tickets", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
                       ],
                     ),
                     Container(
-                     //clipBehavior: Clip.antiAlias,
+                      //clipBehavior: Clip.antiAlias,
                       height: 70,
                       width: 70,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: const DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage("assets/flight-g43c7bbac2_1920.jpg"))
-                      ),
+                          borderRadius: BorderRadius.circular(20),
+                          image: const DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage(
+                                  "assets/flight-g43c7bbac2_1920.jpg"))),
                       //width: MediaQuery.of(context).size.width * 0.7,
                     )
                   ],
                 ),
                 const Gap(25),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: const Color(0xFFF4F5FD),
                   ),
                   child: Row(
                     children: [
-                      const Icon(FluentSystemIcons.ic_fluent_search_regular, color: Color(0xFFBFC205),),
-                      Text("Search", style: Styles.headlineStyle4,)
+                      const Icon(
+                        FluentSystemIcons.ic_fluent_search_regular,
+                        color: Color(0xFFBFC205),
+                      ),
+                      Text(
+                        "Search",
+                        style: Styles.headlineStyle4,
+                      )
                     ],
                   ),
                 ),
@@ -63,10 +74,15 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Upcoming Flights", style: Styles.headlineStyle2,),
+                    Text(
+                      "Upcoming Flights",
+                      style: Styles.headlineStyle2,
+                    ),
                     InkWell(
-                      onTap: (){},
-                      child: Text("View all", style: Styles.textStyle.copyWith(color: Styles.primaryColor )))
+                        onTap: () {},
+                        child: Text("View all",
+                            style: Styles.textStyle
+                                .copyWith(color: Styles.primaryColor)))
                   ],
                 )
               ],
@@ -79,8 +95,8 @@ class HomeScreen extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: const [
-                 TicketView(),
-                  TicketView(),
+                TicketView(),
+                TicketView(),
               ],
             ),
           ),
@@ -88,27 +104,29 @@ class HomeScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Row(
-              
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Hotels", style: Styles.headlineStyle2.copyWith(color: Colors.black),),
+                Text(
+                  "Hotels",
+                  style: Styles.headlineStyle2.copyWith(color: Colors.black),
+                ),
                 InkWell(
-                  onTap: (){},
-                  child: Text("View all", style: Styles.textStyle.copyWith(color: Styles.primaryColor),))
+                    onTap: () {},
+                    child: Text(
+                      "View all",
+                      style:
+                          Styles.textStyle.copyWith(color: Styles.primaryColor),
+                    ))
               ],
             ),
           ),
           const Gap(15),
-        SingleChildScrollView(
+          SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(left: 16),
             child: Row(
               mainAxisSize: MainAxisSize.min,
-              children: const [
-                 HotelView(),
-                  HotelView(),
-                   HotelView(),
-              ],
+              children: hotelList.map((e) => HotelView(hotel: e)).toList()
             ),
           ),
         ],
