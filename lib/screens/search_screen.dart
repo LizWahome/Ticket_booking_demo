@@ -73,6 +73,62 @@ class SearchScreen extends StatelessWidget {
             ),
             Gap(AppLayout.getHeight(25)),
              const UpcomingFlights(bText: 'Upcoming Flights', sText: 'View all',),
+             Row(
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(17), vertical: AppLayout.getHeight(15)),
+                  width: size.width *0.42,
+                  height: AppLayout.getHeight(350),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(AppLayout.getHeight(15))
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: AppLayout.getHeight(180),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(AppLayout.getHeight(15)),
+                          image: const DecorationImage(image: AssetImage("assets/airplane-g9f25c8a2b_1920.jpg"), fit: BoxFit.cover)
+                        ),
+                      ),
+                      Gap(AppLayout.getHeight(10)),
+                      Text("20% discount on business class tickets from Airline On International", style: Styles.textStyle)
+                    ],
+                  ),
+                ),
+                Gap(AppLayout.getWidth(20)),
+                Column(
+                  children: [
+                    Container(
+                      width: size.width * 0.4,
+                      height: 175,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(AppLayout.getHeight(15)),
+                        color: Colors.cyan
+                      ),
+                    ),
+                    Gap(AppLayout.getHeight(15)),
+                    Container(
+                       width: size.width * 0.4,
+                      height: 175,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(AppLayout.getHeight(15)),
+                        color: Colors.orange
+                      ),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 16.0),
+                            child: Text("Take love", style: Styles.headlineStyle2.copyWith(color: Colors.white),),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                )
+              ],
+             )
               ],
             )
           ),
