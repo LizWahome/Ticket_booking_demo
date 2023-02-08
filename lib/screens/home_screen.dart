@@ -83,7 +83,7 @@ class HomeScreen extends StatelessWidget {
             padding: EdgeInsets.only(left: AppLayout.getWidth(16)),
             child: Row(
               mainAxisSize: MainAxisSize.min,
-              children: ticketList.map((e) => TicketView(ticket: e)).toList()
+              children: ticketList.map((e) => TicketView(ticket: e, color1: const Color(0xFF526799), color2: Styles.orangeColor,)).toList()
             ),
           ),
           Gap(AppLayout.getHeight(15)),
