@@ -30,7 +30,7 @@ class SearchScreen extends StatelessWidget {
                   Gap(AppLayout.getHeight(15)),
                   Container(
                     padding: const EdgeInsets.all(3.5),
-                    child: TicketsUpcomingView(text1: 'Airline tickets', text2: 'Hotels',)
+                    child: const TicketsUpcomingView(text1: 'Airline tickets', text2: 'Hotels',)
                   ),
                   Gap(AppLayout.getHeight(15)),
                   const AppIconText(
@@ -107,7 +107,7 @@ class SearchScreen extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(
                                         AppLayout.getHeight(15)),
-                                    color: Color(0xFF3ABBBB)),
+                                    color: const Color(0xFF3ABBBB)),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -137,7 +137,7 @@ class SearchScreen extends StatelessWidget {
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       border: Border.all(
-                                          width: 15, color: Color(0xFF189999)),
+                                          width: 15, color: const Color(0xFF189999)),
                                       color: Colors.transparent),
                                 ),
                               )
@@ -150,21 +150,23 @@ class SearchScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(
                                     AppLayout.getHeight(15)),
-                                color: Color(0xFFEC6545)),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 16.0),
-                                  child: Text(
-                                    "Take love",
-                                    style: Styles.headlineStyle2
-                                        .copyWith(color: Colors.white),
+                                color: const Color(0xFFEC6545)),
+                            child: FittedBox(
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 16.0),
+                                    child: Text(
+                                      "Take love",
+                                      style: Styles.headlineStyle2
+                                          .copyWith(color: Colors.white),
+                                    ),
                                   ),
-                                ),
-                                 Gap(AppLayout.getHeight(5)),
-                                Image.asset("assets/emoji-g38d5197d6_1920-removebg-preview.png"),
-                                
-                              ],
+                                   Gap(AppLayout.getHeight(5)),
+                                  Image.asset("assets/emoji-g38d5197d6_1920-removebg-preview.png"),
+                                  
+                                ],
+                              ),
                             ),
                           )
                         ],
