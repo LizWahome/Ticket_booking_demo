@@ -6,7 +6,9 @@ import 'package:ticket_booking_demo/screens/ticket_view.dart';
 import 'package:ticket_booking_demo/utils/app_info_list.dart';
 import 'package:ticket_booking_demo/utils/app_layout.dart';
 import 'package:ticket_booking_demo/utils/styles.dart';
+import 'package:ticket_booking_demo/widgets/image_widget.dart';
 import 'package:ticket_booking_demo/widgets/text_upcoming.dart';
+import 'package:ticket_booking_demo/widgets/text_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -30,25 +32,11 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text("Good morning", style: Styles.headlineStyle3),
                          Gap(AppLayout.getHeight(5)),
-                        Text(
-                          "Book Tickets",
-                          style: Styles.headlineStyle,
-                        )
+                        TextWidget()
                         //Text("Book Tickets", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
                       ],
                     ),
-                    Container(
-                      //clipBehavior: Clip.antiAlias,
-                      height: AppLayout.getHeight(70),
-                      width: AppLayout.getWidth(70),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(AppLayout.getHeight(20)),
-                          image: const DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage(
-                                  "assets/flight-g43c7bbac2_1920.jpg"))),
-                      //width: MediaQuery.of(context).size.width * 0.7,
-                    )
+                    const ImageWidget()
                   ],
                 ),
                 Gap(AppLayout.getHeight(25)),
