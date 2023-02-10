@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         Text("Good morning", style: Styles.headlineStyle3),
                          Gap(AppLayout.getHeight(5)),
-                        TextWidget()
+                        const TextWidget()
                         //Text("Book Tickets", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
                       ],
                     ),
